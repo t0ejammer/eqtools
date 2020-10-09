@@ -20,7 +20,6 @@ import scipy
 import scipy.interpolate
 import warnings
 import time
-#import core
 import matplotlib.pyplot as plt
 try:
     import trispline
