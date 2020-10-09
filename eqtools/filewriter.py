@@ -20,7 +20,7 @@ import scipy
 import scipy.interpolate
 import warnings
 import time
-import core
+#import core
 import matplotlib.pyplot as plt
 try:
     import trispline
@@ -28,7 +28,7 @@ try:
 except ImportError:
     warnings.warn("trispline module could not be loaded -- tricubic spline "
                   "interpolation will not be available.",
-                  core.ModuleWarning)
+                  ImportWarning)
     _has_trispline = False
 
 

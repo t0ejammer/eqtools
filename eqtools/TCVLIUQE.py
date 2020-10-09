@@ -23,7 +23,7 @@ working with TCV LIUQE Equilibrium.
 import scipy
 from collections import namedtuple
 from .EFIT import EFITTree
-from .core import PropertyAccessMixin, ModuleWarning
+from .core import PropertyAccessMixin
 import warnings
 
 try:
@@ -32,13 +32,13 @@ except Exception as _e_MDS:
     if isinstance(_e_MDS, ImportError):
         warnings.warn("MDSplus module could not be loaded -- classes that use "
                       "MDSplus for data access will not work.",
-                      ModuleWarning)
+                      ImportWarning)
     else:
         warnings.warn("MDSplus module could not be loaded -- classes that use "
                       "MDSplus for data access will not work. Exception raised "
                       "was of type %s, message was '%s'."
                       % (_e_MDS.__class__, _e_MDS.message),
-                      ModuleWarning)
+                      ImportWarning)
     _has_MDS = False
 
 try:
@@ -55,7 +55,7 @@ try:
 except Exception:
     warnings.warn("matplotlib modules could not be loaded -- plotting and gfile"
                   " writing will not be available.",
-                  ModuleWarning)
+                  ImportWarning)
 
 # we need to define the green function area from the polygon
 # see http://stackoverflow.com/questions/22678990/how-can-i-calculate-the-area-within-a-contour-in-python-using-the-matplotlib

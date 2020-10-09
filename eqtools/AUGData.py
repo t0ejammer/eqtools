@@ -23,7 +23,7 @@ working with ASDEX Upgrade experimental data.
 import scipy
 from collections import namedtuple
 
-from .core import PropertyAccessMixin, ModuleWarning, Equilibrium, inPolygon
+from .core import PropertyAccessMixin, Equilibrium, inPolygon
 
 import warnings
 
@@ -37,7 +37,7 @@ except Exception as _e_dd:
         warnings.warn(
             "dd module could not be loaded -- classes that use "
             "dd for data access will not work.",
-            ModuleWarning
+            ImportWarning
         )
     else:
         warnings.warn(
@@ -46,7 +46,7 @@ except Exception as _e_dd:
             "was of type {:s}, message was '{:s}'.".format(
                 _e_dd.__class__, _e_dd.message
             ),
-            ModuleWarning
+            ImportWarning
         )
     _has_dd = False
 
@@ -57,7 +57,7 @@ except:
     warnings.warn(
         "Matplotlib.pyplot module could not be loaded -- classes that "
         "use pyplot will not work.",
-        ModuleWarning
+        ImportWarning
     )
     _has_plt = False
 

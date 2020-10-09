@@ -23,7 +23,7 @@ with EFIT data.
 import scipy
 from collections import namedtuple
 
-from .core import Equilibrium, ModuleWarning, inPolygon
+from .core import Equilibrium, inPolygon
 
 import warnings
 
@@ -34,13 +34,13 @@ except Exception as _e_MDS:
     if isinstance(_e_MDS, ImportError):
         warnings.warn("MDSplus module could not be loaded -- classes that use "
                       "MDSplus for data access will not work.",
-                      ModuleWarning)
+                      ImportWarning)
     else:
         warnings.warn("MDSplus module could not be loaded -- classes that use "
                       "MDSplus for data access will not work. Exception raised "
                       "was of type %s, message was '%s'."
                       % (_e_MDS.__class__, _e_MDS.message),
-                      ModuleWarning)
+                      ImportWarning)
     _has_MDS = False
 
 try:
@@ -48,7 +48,7 @@ try:
     _has_plt = True
 except:
     warnings.warn("Matplotlib.pyplot module could not be loaded -- classes that "
-                  "use pyplot will not work.",ModuleWarning)
+                  "use pyplot will not work.", ImportWarning)
     _has_plt = False
 
 

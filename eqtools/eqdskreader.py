@@ -31,7 +31,7 @@ import re
 import csv
 import warnings
 from collections import namedtuple
-from .core import Equilibrium, ModuleWarning, inPolygon
+from .core import Equilibrium, inPolygon
 from .afilereader import AFileReader
 
 try:
@@ -43,7 +43,7 @@ except Exception:
     _has_plt = False
     warnings.warn("WARNING: matplotlib modules could not be loaded -- plotting "
                   "will not be available.",
-                  ModuleWarning)
+                  ImportWarning)
 
 
 class EqdskReader(Equilibrium):

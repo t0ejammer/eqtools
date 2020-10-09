@@ -35,19 +35,13 @@ B_LABEL = '$B$ [T]'
 J_LABEL = '$j$ [MA/m$^2$]'
 
 
-class ModuleWarning(Warning):
-    """Warning class to notify the user of unavailable modules.
-    """
-    pass
-
-
 try:
     import trispline
     _has_trispline = True
 except ImportError:
     warnings.warn("trispline module could not be loaded -- tricubic spline "
                   "interpolation will not be available.",
-                  ModuleWarning)
+                  ImportWarning)
     _has_trispline = False
 
 try:
